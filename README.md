@@ -26,7 +26,7 @@ Just click here:
 
 Go to [Choose a type of application](https://openshift.redhat.com/app/console/application_types) in your OpenShift Online account, paste the URL below into "Code Anything" textbox at the bottom of the page, click "Next", then set your public URL and click "Create Application".
 
-    https://raw.githubusercontent.com/icflorescu/openshift-cartridge-nodejs/master/metadata/manifest.yml
+    https://raw.githubusercontent.com/umeboshi2/openshift-cartridge-nodejs/master/metadata/manifest.yml
 
 ### Using command line
 
