@@ -1,0 +1,3 @@
+Promise = require 'bluebird'
+
+
