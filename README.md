@@ -12,13 +12,22 @@ Because the standard OpenShift cartridge never gets updated to the latest Node.j
 
 When you need a quick and unsophisticated solution to run your application on the latest Node.js version.
 
+## Note: Looking for (co-)maintainers
+
+A lot of people have been using this cartridge since the beginning of 2015.
+Thank you all for your PRs and moral support.
+
+However, since I'm not using OpenShift in my projects anymore, there's now little reason for me to maintain this repository as well as it probably deserves.
+
+So, if anyone is willing and ready to step up and become a maintainer, please don't hesitate to drop me a line!
+
 ## How to
 
 ### The lazy way
 
 Just click here:
 
-[![Create Node.js app on OpenShift](https://launch-shifter.rhcloud.com/launch/Create app on.svg)](https://openshift.redhat.com/app/console/application_type/custom?&cartridges[]=https://raw.githubusercontent.com/icflorescu/openshift-cartridge-nodejs/master/metadata/manifest.yml&name=appname)
+[![Create Node.js app on OpenShift](https://cloud.githubusercontent.com/assets/581999/24554921/f1f2d5dc-1637-11e7-9089-d14791458744.png)](https://openshift.redhat.com/app/console/application_type/custom?&cartridges[]=https://raw.githubusercontent.com/icflorescu/openshift-cartridge-nodejs/master/metadata/manifest.yml&name=appname)
 
 …or deploy from the [OpenShift Hub Quickstart](https://hub.openshift.com/quickstarts/243-node-js-latest).
 
