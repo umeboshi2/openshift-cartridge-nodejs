@@ -16,6 +16,22 @@ function update_nodejs {
     echo "Could not retrieve node version information from $VERSION_URL"
     return 1
   fi
+  
+  # use yarn
+  if [ -n "$YARN_VERSION_URL" ]; then
+    local YVERSION_URL=$YARN_VERSION_URL
+  elif [ -f "$OPENSHIFT_REPO_DIR/.openshift/YARN_VERSION_URL" ]; then
+    local YVERSION_URL=$(cat $OPENSHIFT_REPO_DIR/.openshift/YARN_VERSION_URL)
+  else
+    local YVERSION_URL="https://semver.io/yarn"
+  fi
+
+  local YLATEST="v$(curl --silent --max-time 5 ${YVERSION_URL})"
+
+  if [ "$YLATEST" = "v" ]; then
+    echo "Could not retrieve node version information from $YVERSION_URL"
+    return 1
+  fi
 
   # Update Node.js if necessary
 
@@ -58,4 +74,25 @@ function update_nodejs {
     npm i -g npm@${NPM_WANTED_VERSION}
     echo "Npm updated to $(npm --version)."
   fi
+  
+  # use yarn
+  if [ -n "$YARN_VERSION_URL" ]; then
+    local YVERSION_URL=$YARN_VERSION_URL
+  elif [ -f "$OPENSHIFT_REPO_DIR/.openshift/YARN_VERSION_URL" ]; then
+    local YVERSION_URL=$(cat $OPENSHIFT_REPO_DIR/.openshift/YARN_VERSION_URL)
+  else
+    local YVERSION_URL="https://semver.io/yarn"
+  fi
+
+  local YLATEST="v$(curl --silent --max-time 5 ${VERSION_URL})"
+  if [ -z `which yarn` ]; then
+      echo "Install yarn first time."
+      npm i -g yarn
+  fi
+  if [ $YLATEST != ${yarn --version} ]; then
+      npm i -g yarn@${YLATEST}
+  fi
+  
+      
+  #local NODE_URL=https://nodejs.org/dist/${LATEST}/node-${LATEST}-linux-x64.tar.gz
 }
