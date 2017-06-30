@@ -89,7 +89,7 @@ function update_nodejs {
       echo "Install yarn first time."
       npm i -g yarn
   fi
-  if [ $YLATEST != ${yarn --version} ]; then
+  if [ $YLATEST != $(yarn --version) ]; then
       npm i -g yarn@${YLATEST}
   fi
   
